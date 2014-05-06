@@ -2,15 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 import org.json.*;
 
 
@@ -31,7 +23,6 @@ public class Schulze {
 		try {
 			file = new FileReader(filename);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         BufferedReader br = new BufferedReader(file);
@@ -254,7 +245,10 @@ public class Schulze {
 		for (int i=0 ; i<wins.size() ; i++){
 			System.out.print("[");
 			for (int j=0 ; j<wins.get(i).size() ; j++){
-				System.out.print(candidates.get(wins.get(i).get(j))+", ");		//candidates printing
+				if(j!=(wins.get(i).size()-1))
+					System.out.print(candidates.get(wins.get(i).get(j))+", ");		//candidates printing
+				else
+					System.out.print(candidates.get(wins.get(i).get(j)));		//candidates printing
 			}			
 			System.out.print("]");
 		}
@@ -265,7 +259,10 @@ public class Schulze {
 		for (int i=0 ; i<wins.size() ; i++){
 			System.out.print(candidates.get(i)+" = "+wins.get(i).size()+" [");
 			for (int j=0 ; j<wins.get(i).size() ; j++){
-				System.out.print(candidates.get(wins.get(i).get(j))+", ");		//candidates printing
+				if(j!=(wins.get(i).size()-1))
+					System.out.print(candidates.get(wins.get(i).get(j))+", ");		//candidates printing
+				else
+					System.out.print(candidates.get(wins.get(i).get(j)));		//candidates printing
 			}			
 			System.out.println("]");
 		}
